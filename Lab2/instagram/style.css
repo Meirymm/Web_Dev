@@ -138,23 +138,11 @@ hr {
     padding: 20px 0;
 }
 
-.contents:first-child li:last-child {
-    outline: none;
-    color: #0b0600;
-    padding: 0 8px;
-    font-weight: 700;
-    font-size: 30px;
-}
-
-.contents ol li {
-    padding-right: 18px;
-    font-size: 12px;
-    color:#0b0600;
-}
-
 .contents ol li a {
-    text-decoration: none;
-    color: #0b0600;
+  padding-right: 18px;
+  font-size: 12px;
+  text-decoration: none;
+  color: #0b0600;
 }
 
 .contents ol li a:hover {
