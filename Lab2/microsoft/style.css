@@ -50,13 +50,15 @@ nav {
 .icons {
     display: flex;
     align-items: center;
+    justify-content: space-around;
 }
+
 
 
 .icon-item {
     display: flex;
     align-items: center;
-    margin-left: 15px;
+    margin-left: 25px;
 }
 
 
@@ -131,12 +133,13 @@ nav {
     
 }
 .btn:hover {
-    background-color: #005a9e; /* Цвет фона при наведении */
+    background-color: #005a9e; 
 }
 
 .categories {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     background: white;
     padding: 40px 0;
 
@@ -153,7 +156,6 @@ nav {
 }
 
 .category a {
-    
     font-size: 14px;
 }
 
@@ -171,8 +173,8 @@ nav {
     width: 22%;
     text-align: left;
     border-radius: 5px;
-    border: 1px solid #e0e0e0; /* Добавлена граница карточек */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Добавлен легкий теневой эффект */
+    border: 1px solid #e0e0e0; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
 
 .product img {
