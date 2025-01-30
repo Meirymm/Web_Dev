@@ -21,9 +21,6 @@
   top: 26px;
   right: 58px;
 }
-#screenshot {
-  transition: all ease-in 0.4s;
-}
 .right-forms {
   text-align: center;
   box-sizing: border-box;
