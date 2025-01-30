@@ -113,11 +113,7 @@ hr {
   width: 130px;
 }
 
-@media (max-width: 850px) {
-  .phones-screenshots {
-    display: none;
-  }
-}
+
 
 .contents {
     position: absolute;
