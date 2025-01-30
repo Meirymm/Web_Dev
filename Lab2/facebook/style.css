@@ -32,20 +32,16 @@ footer{
 .col-logo {
     flex: 0 0 40%;
     text-align: left;
+    max-width: 400px;
 }
 
 .col-form {
     flex: 0 0 40%;
     text-align: center;
-}
-
-.col-logo img {
-    max-width: 400px;
+    
 }
 
 .col-logo h2 {
-    font: 90px;
-    font-weight: 530;
     padding: 0 50px;
     line-height: 32px;
 }
