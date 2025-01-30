@@ -169,12 +169,12 @@ nav {
 
 .product {
     background: white;
-    padding: 20px;
     width: 22%;
     text-align: left;
     border-radius: 5px;
     border: 1px solid #e0e0e0; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 3px; 
 }
 
 .product img {
@@ -186,10 +186,13 @@ nav {
 
 .product h3 {
     font-size: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+    padding:20px
 }
 
 .product p {
     font-size: 14px;
-    margin-bottom: 50px;
+    padding:20px
 }
+
+
