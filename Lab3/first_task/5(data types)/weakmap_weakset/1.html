@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let messages = [
+  {text: "Hello", from: "John"},
+  {text: "How goes?", from: "John"},
+  {text: "See you soon", from: "Alice"}
+];
+
+let readMessages = new WeakSet();
+
+// two messages have been read
+readMessages.add(messages[0]);
+readMessages.add(messages[1]);
+// readMessages has 2 elements
+
+// ...let's read the first message again!
+readMessages.add(messages[0]);
+// readMessages still has 2 unique elements
+
+// answer: was the message[0] read?
+alert("Read message 0: " + readMessages.has(messages[0])); // true
+
+messages.shift();
+    </script>
+</body>
+</html>

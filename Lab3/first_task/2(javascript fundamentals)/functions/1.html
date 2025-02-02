@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        function checkAge(age) {
+             return (age>18) ? true : confirm('Did parents allow you?');
+          }
+          let age =prompt('How old are you?', ' ');
+          checkAge();
+          function checkAge(age) {
+            return (age > 18) || confirm('Did parents allow you?');
+          }
+    </script>
+</body>
+</html>
