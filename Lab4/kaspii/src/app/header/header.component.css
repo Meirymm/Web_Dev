@@ -1,0 +1,59 @@
+nav {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    position: fixed; /* Закрепляет вверху */
+    top: 0; /* Прижимает к верху */
+    left: 0;
+    background-color: white; /* Фон, чтобы не перекрывался */
+    padding: 10px 20px;
+    z-index: 1000; /* Поверх других элементов */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Небольшая тень */
+}
+
+.logo {
+    height: 69px;
+
+}
+.nav-links {
+    display: flex;
+    list-style: none;
+    flex-grow: 1;
+    justify-content: center;
+    
+}
+
+.nav-links li {
+    margin: 0 45px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: black;
+    font-size: 30px;
+}
+.nav-links li a:hover, .nav-links li a:active {
+    text-decoration: underline; 
+}
+
+.lngs {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+
+.lng {
+    display: flex;
+    align-items: center;
+    margin-left: 25px;
+}
+
+
+.lng span {
+    font-size: 28px;
+    color: black;
+    margin-right: 5px;
+}

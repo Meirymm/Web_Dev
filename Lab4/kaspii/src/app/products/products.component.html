@@ -1,0 +1,23 @@
+<div class="container mt-4">
+    <div class="row">
+      <div class="col-12 mb-4" *ngFor="let product of products">
+        <div class="product-card">
+          <div class="image-container">
+            <button class="btn prev-btn" (click)="prevImg(product)">❮</button>
+            <img [src]="product.imageUrls[imgIndex[product.name]]" class="product-image" alt="{{ product.name }}">
+            <button class="btn next-btn" (click)="nextImg(product)">❯</button>
+          </div>
+          
+          <div class="product-info">
+            <h5 class="product-title">{{ product.name }}</h5>
+            <p class="product-text">{{ product.description }}</p>
+            <p class="product-rating"><strong>Rating:</strong> ⭐{{ product.rating }}</p>
+            <div class="buttons-container">
+                  <button class="btn btn-whatsapp" (click)="shareOnWhatsApp(product)">WhatsApp</button>
+                  <button class="btn btn-telegram" (click)="shareOnTelegram(product)">Telegram</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>  
