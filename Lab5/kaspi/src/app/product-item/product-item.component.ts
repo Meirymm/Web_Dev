@@ -12,8 +12,29 @@ export class ProductItemComponent {
   @Output() shareWhatsApp = new EventEmitter<void>();
   @Output() shareTelegram = new EventEmitter<void>();
 
+  liked = false;
+  ngOnInit() {
+    const savedLikes = localStorage.getItem(`likes_${this.product.id}`);
+    const savedLiked = localStorage.getItem(`liked_${this.product.id}`);
+
+    if (savedLikes !== null) {
+      this.product.likes = Number(savedLikes); 
+    }
+
+    if (savedLiked !== null) {
+      this.liked = savedLiked === 'true'; 
+    }
+
+  }
   onLike() {
-    this.like.emit();
+    if (this.liked) {
+      this.product.likes -= 1; 
+    } else {
+      this.product.likes += 1; 
+    }
+    this.liked = !this.liked;
+    localStorage.setItem(`likes_${this.product.id}`, String(this.product.likes));
+    localStorage.setItem(`liked_${this.product.id}`, String(this.liked));
   }
   removeProduct(){
     this.remove.emit();
