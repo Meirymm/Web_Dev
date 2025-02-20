@@ -1,175 +1,216 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Product } from '../product.model';
-
+import { FormsModule } from '@angular/forms';
+import { ProductListComponent } from '../product-list/product-list.component';
 @Component({
   selector: 'app-products',
-  imports: [CommonModule],
+  standalone: true,
+  imports: [CommonModule, FormsModule, ProductListComponent],
   templateUrl: './products.component.html',
-  styleUrl: './products.component.css'
+  styleUrls: ['./products.component.css']
 })
 export class ProductsComponent {
-  products: Product[] = [
-    {
-      name: 'Стул C06, 80x46x40 см, белый',
-      description: 'Благодаря сочетанию пластика с металлом и деревом изделие органично вписывается практически в любую среду, делая обстановку более естественной и «живой».',
-      imageUrls: [
-        'https://resources.cdn-kaspi.kz/img/m/p/pdd/p2b/3187771.jpg?format=gallery-medium',
-        'https://resources.cdn-kaspi.kz/img/m/p/p33/p2b/3187777.jpg?format=gallery-medium',
-        'https://resources.cdn-kaspi.kz/img/m/p/p57/p28/3187782.jpg?format=gallery-medium'
-      ],
-      rating: 4.8,
-    },
-
-    {
-      name: 'Round Lab 1025 Dokdo пенка 150 мл',
-      description: 'Очищающая пенка на основе морской воды мягко и бережно удаляет остатки макияжа и микропыль, которая незаметно оседает на нашем теле, обеспечивая нежное увлажнение, кожа приобретает чистый, здоровый и сияющий вид.',
-      imageUrls: [
-        'https://resources.cdn-kaspi.kz/img/m/p/h46/h3f/86248968290334.jpg?format=gallery-medium',
-        'https://resources.cdn-kaspi.kz/img/m/p/hac/h62/86248968323102.jpg?format=gallery-medium',
-        'https://resources.cdn-kaspi.kz/img/m/p/h4a/h4d/86248968355870.jpg?format=gallery-medium'
-      ],
-      rating: 4.9,
-    },
-
-    {
-      name: 'Серьги MONTIE латунь, акрил, без вставок',
-      description: 'Цвет материалазолотистый.Страна производительКитай.',
-      imageUrls: [
-        'https://resources.cdn-kaspi.kz/img/m/p/pa5/p5d/18715936.jpeg?format=gallery-medium',
-        'https://resources.cdn-kaspi.kz/img/m/p/p3c/p5a/18715937.jpeg?format=gallery-large',
-        'https://resources.cdn-kaspi.kz/img/m/p/pd2/p56/18715938.jpeg?format=gallery-large'
-      ],
-      rating: 4.8,
-    },
-
-    {
-      name: 'The Act Virgin лосьон для тела 300 мл',
-      description: 'Молочко для тела глубоко питает и увлажняет благодаря натуральным маслам и экстрактам. Сладкий аромат вишни, чёрной смородины, розового грейпфрута и миндаля создаёт расслабляющую атмосферу спa.',
-      imageUrls: [
-        'https://resources.cdn-kaspi.kz/img/m/p/he8/h82/87239987003422.jpg?format=gallery-large',
-        'https://resources.cdn-kaspi.kz/img/m/p/hfd/h9a/87239987068958.jpg?format=gallery-large',
-        'https://resources.cdn-kaspi.kz/img/m/p/hb9/h16/87239987462174.jpg?format=gallery-large'
-      ],
-      rating: 4.9,
-      
-    },
-
-    {
-      name: 'NOW D-3 5000 IU капсулы 120 шт',
-      description: 'В каждой порции Vitamin D-3 5000 IU от NOW содержится витамин Д3. Это та его форма, которая синтезируется в коже под воздействием солнечного света. При этом находится он в быстро усваиваемых гелевых капсулах.',
-      imageUrls: [
-        'https://resources.cdn-kaspi.kz/img/m/p/h1f/hce/69165915701278.jpg?format=gallery-medium',
-        'https://resources.cdn-kaspi.kz/img/m/p/h69/hb5/69165917929502.jpg?format=gallery-medium',
-        'https://resources.cdn-kaspi.kz/img/m/p/ha0/hde/85364003340318.jpg?format=gallery-medium'
-      ],
+  categories = ["All","Gadgets", "Beauty", "Clothes", "Gifts for the holidays"];
+  selectedCategory = 'All';
+  products:any[] = [
+    { 
+      name: 'Смартфон Apple iPhone 16 Pro Max 256Gb черный',
+      description: 'Флагманский IPhone 16 Pro Max вобрал в себя лучшие черты современного гаджета.',
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/hcf/h69/87295489343518.png?format=gallery-medium',
       rating: 5.0,
+      likes: 0,
+      category:'Gadgets'
     },
 
     {
-      name: 'Наушники OEM P9 серебристый',
-      description: 'Наушники очень удобные и хорошо работает.',
-      imageUrls: [
-        'https://resources.cdn-kaspi.kz/img/m/p/h07/h7a/84985846595614.jpg?format=gallery-medium',
-        'https://resources.cdn-kaspi.kz/img/m/p/h1f/hb2/84985846661150.jpg?format=gallery-medium'
-      ],
-      rating: 4.2,
+      name: 'Смартфон Samsung Galaxy A06 4 ГБ/64 ГБ черный',
+      description: 'Операционная система Android 14',
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/hba/h84/87014305824798.png?format=gallery-medium',
+      rating: 4.9,
+      likes: 0,
+      category:'Gadgets'
     },
 
     {
-      name: 'Вешалка напольная, izox, металл, 110x150 см, черный',
-      description: 'Напольная металлическая вешалка представляет собой прочную и надёжную конструкцию, способную выдерживать значительный вес одежды. Изготовленная из высококачественного металла, стойка для одежды обеспечивает долговечность и стабильность.',
-      imageUrls: [
-        'https://resources.cdn-kaspi.kz/img/m/p/h60/he1/84668650291230.png?format=gallery-medium',
-        'https://resources.cdn-kaspi.kz/img/m/p/h30/hc0/83825341530142.jpg?format=gallery-medium'
-      ],
+      name: 'Смартфон OPPO A78 8 ГБ/256 ГБ черный',
+      description: 'Смартфон имеет экран AMOLED с разрешением FHD+, на который выводятся детализированные изображения с естественной цветопередачей. ',
+      image:'https://resources.cdn-kaspi.kz/img/m/p/hc0/h02/83108938809374.jpg?format=gallery-medium',
       rating: 4.8,
-      
+      likes: 0,
+      category:'Gadgets'
+    },
+
+    {
+      name: 'Смартфон Apple iPhone 15 128Gb голубой',
+      description: 'Apple iPhone 15 - смартфон, сочетающий в себе передовую оптику, мощный процессор, долгоиграющую батарею и запоминающийся дизайн.',
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/h01/h5f/86303746293790.jpg?format=gallery-medium',
+      rating: 4.9,
+      likes: 0,
+      category:'Gadgets'
+    },
+
+    {
+      name: 'Смартфон Realme Note 50 4 ГБ/128 ГБ черный',
+      description: 'Смартфон Realme Note 50 диагональю 6.7" выполнен в голубом корпусе с защитой по стандарту IP54. ',
+      image:'https://resources.cdn-kaspi.kz/img/m/p/hd6/hcf/84991826722846.png?format=gallery-medium',
+      rating: 5.0,
+      likes: 0,
+      category:'Gadgets'
+    },
+
+    {
+      name: 'Ollin Professional Perfect Hair 15 в 1 крем-спрей 250 мл',
+      description: 'Уникальное многофункциональное средство заменит вам целых 15 продуктов для ухода за волосами. ',
+      image:'https://resources.cdn-kaspi.kz/img/m/p/p3c/pb5/21586295.jpg?format=gallery-medium',
+      rating: 4.2,
+      likes: 0,
+      category:'Beauty'
     },
 
     {
       name: 'Herbal Essences Глубокое питание шампунь 350 мл',
-      description: 'Насладитесь тропическим раем вместе с брендом, вдохновленным силой природы. Шампунь Herbal Essences Аромат кокоса Глубокое питаниe увлажняет и питает очень сухие волосы, а аромат кокоса обеспечивает душевное равновесие и внутреннюю гармонию. ',
-      imageUrls: [
-        'https://resources.cdn-kaspi.kz/img/m/p/h2c/hbc/86866546556958.jpg?format=gallery-medium',
-        'https://resources.cdn-kaspi.kz/img/m/p/hfa/h6f/86866546622494.jpg?format=gallery-medium',
-        'https://resources.cdn-kaspi.kz/img/m/p/hb7/h8e/86866547015710.jpg?format=gallery-medium'
-      ],
+      description: 'Насладитесь тропическим раем вместе с брендом, вдохновленным силой природы.',
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/h2c/hbc/86866546556958.jpg?format=gallery-medium',
       rating: 5.0,
+      likes: 0,
+      category:'Beauty'
     },
     {
       name: 'Celimax тонер Dual Barrier 150 мл',
-      description: 'Барьерный кремовый тонер Celimax Dual Barrier Creamy Toner увлажняет, питает и восстанавливает, укрепляет естественный защитный слой и снижает чувствительность кожи к внешним раздражителям, успокаивая и смягчая. Средство устраняет шелушение и сухость.',
-      imageUrls: [
-        'https://resources.cdn-kaspi.kz/img/m/p/hb5/hcf/86640324050974.jpg?format=gallery-medium',
-        'https://resources.cdn-kaspi.kz/img/m/p/hef/h6e/86640643702814.png?format=gallery-medium',
-        'https://resources.cdn-kaspi.kz/img/m/p/hd5/h66/86640324116510.jpg?format=gallery-medium'
-      ],
+      description: 'Барьерный кремовый тонер Celimax Dual Barrier Creamy Toner увлажняет, питает и восстанавливает, укрепляет естественный защитный слой и снижает чувствительность кожи к внешним раздражителям, успокаивая и смягчая.',
+      image:'https://resources.cdn-kaspi.kz/img/m/p/hb5/hcf/86640324050974.jpg?format=gallery-medium',
       rating: 5.0,
+      likes: 0,
+      category:'Beauty'
     },
 
     {
       name: 'Welcos Confume Argan шампунь 750 мл',
-      description: 'Шампунь для волос с аргановым маслом Confume Argan бережно очищает волосы и кожу головы, питает и укрепляет корни. Активизирует рост волос, предотвращает рассечение концов, придает объем и шелковистость',
-      imageUrls: [
-        'https://resources.cdn-kaspi.kz/img/m/p/h95/h3a/87214789525534.jpg?format=gallery-large',
-        'https://resources.cdn-kaspi.kz/img/m/p/h22/h57/87214789656606.jpg?format=gallery-large',
-        'https://resources.cdn-kaspi.kz/img/m/p/hb7/h7c/87214789722142.jpg?format=gallery-large'
-      ],
+      description: 'Шампунь для волос с аргановым маслом Confume Argan бережно очищает волосы и кожу головы, питает и укрепляет корни. ',
+      image:'https://resources.cdn-kaspi.kz/img/m/p/h95/h3a/87214789525534.jpg?format=gallery-large',
       rating: 3.4,
+      likes: 0,
+      category:'Beauty'
     },
     {
-      name: 'Патчи COSRX точечные Acne Pimple Master противовоспалительные 24 шт',
+      name: 'Патчи COSRX точечные Acne Pimple Master 24 шт',
       description: 'Долой прыщи. Средство экстренной помощи Acne Pimple Master Patch - приклеив патчи на ночь, уже утром Вы увидите результат их работы - прыщи станут менее заметны.',
-      imageUrls: [
-        'https://resources.cdn-kaspi.kz/img/m/p/ha0/h4b/63933635067934.jpg?format=gallery-medium',
-        'https://resources.cdn-kaspi.kz/img/m/p/h2e/h7c/85427692535838.jpg?format=gallery-medium',
-        'https://resources.cdn-kaspi.kz/img/m/p/haa/h57/85427692601374.jpg?format=gallery-medium'
-      ],
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/ha0/h4b/63933635067934.jpg?format=gallery-medium',
       rating: 4.7,
+      likes: 0,
+      category:'Beauty'
     },
 
     {
-      name: 'Спрей TIGI Bed Head Superstar Queen for a day',
-      description: 'Этот универсальный спрей тройного действия станет твоим ежедневным помощником в достижении объемных, густых и текстурированных волос. Добавляет ощущение густоты и плотности. Запоминает форму причёски без склеивания и утяжеления.',
-      imageUrls: [
-        'https://resources.cdn-kaspi.kz/img/m/p/heb/hf0/85758703468574.jpg?format=gallery-large',
-        'https://resources.cdn-kaspi.kz/img/m/p/hbd/h64/85758703534110.jpg?format=gallery-large',
-        'https://resources.cdn-kaspi.kz/img/m/p/hcf/h77/85758703566878.jpg?format=gallery-large'
-      ],
-      rating: 4.4,
+      name: 'Носки 916721 1 пара белый 35-41',
+      description: 'Уникальное многофункциональное и смешное носочки заменит вам целых 15 здоровых жизнь. ',
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/hbd/h93/83857662935070.jpg?format=gallery-medium',
+      rating: 4.2,
+      likes: 0,
+      category:'Clothes'
     },
+    {
+      name: 'Футболка черный',
+      description: 'Эта постиранная хлопковая футболка изготовлена из высококачественного хлопка.  ',
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/h3e/h20/85825436712990.jpg?format=gallery-medium',
+      rating: 4.2,
+      likes: 0,
+      category:'Clothes'
+    },
+    {
+      name: 'Толстовка Urban Outfit черный',
+      description: 'Зип худи мягкая без принта - идеальный выбор худи для мужчин, женщин, подростков, мальчиков, девочек школьного возраста, детей.',
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/p49/pb2/22786850.jpg?format=gallery-medium',
+      rating: 4.2,
+      likes: 0,
+      category:'Clothes'
+    },
+    {
+      name: 'Жилет SHEIN черный',
+      description: 'Жилет свободного кроя. Оверсайз. Размер L подойдёт на 46 размер.',
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/h13/hf2/85143754670110.jpg?format=gallery-medium',
+      rating: 4.2,
+      likes: 0,
+      category:'Clothes'
+    },
+    {
+      name: 'Пижама белый',
+      description: 'Пижама очень мягкая и удобная.',
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/h9f/h32/87181597409310.jpg?format=gallery-medium',
+      rating: 4.2,
+      likes: 0,
+      category:'Clothes'
+    },
+    {
+
+      name: 'Набор воздушных шаров Falali фольгированный 13 шт',
+      description: 'Растяжка из шаров Happy Birthday. В комплекте идет: лента , трубочка для надувания . Размер 16 см 40 дюймов',
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/h9b/hc0/86126839693342.jpg?format=gallery-medium',
+      rating: 4.2,
+      likes: 0,
+      category:'Gifts for the holidays'
+    },
+    {
+      name: 'Клубника в шоколаде 12 штук',
+      description: 'Очень вкусная и сладкая сладость,12 штук в одном наборе.  ',
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/hd6/he8/68627938377758.jpg?format=gallery-medium',
+      rating: 4.2,
+      likes: 0,
+      category:'Gifts for the holidays'
+    },
+    {
+      name: 'Набор воздушных шаров с рисунком 44 шт',
+      description: 'Растяжка из шаров Happy Birthday. В комплекте идет: лента , трубочка для надувания . Размер 16 см 40 дюймов',
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/hc3/h3e/85350458851358.jpg?format=gallery-medium',
+      rating: 4.2,
+      likes: 0,
+      category:'Gifts for the holidays'
+    },
+    {
+      name: 'Best Wishes WEST 1 женский набор',
+      description: 'Кулон с надписью «я люблю тебя» на 100 языках. Сделайте приятный подарок Вашим близким .',
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/pe7/p5c/13492928.jpg?format=gallery-medium',
+      rating: 4.2,
+      likes: 0,
+      category:'Gifts for the holidays'
+    },
+    {
+      name: 'Набор бонбоньерок без наполнения 25 шт 11 см',
+      description: 'набор бонбоньерок количество в упаковке 25.',
+      image:'https://resources.cdn-kaspi.kz/img/m/p/h03/h2c/67017816506398.jpg?format=gallery-medium',
+      rating: 4.2,
+      likes: 0,
+      category:'Gifts for the holidays'
+    }
+  ];
   
-  ]
+  filteredProducts: any[] = this.products;
 
-  imgIndex: {[key: string]: number } = {};
+  constructor() {}
 
-  constructor() {
-    this.products.forEach((product) => {
-      this.imgIndex[product.name] = 0;
-    });
+  ngOnInit() {}
+  onCategoryChange(category: string) {
+    this.selectedCategory = category;
+
+    if (category === 'All') {
+      this.filteredProducts = this.products; 
+    } else {
+      this.filteredProducts = this.products.filter(product => product.category === this.selectedCategory);
+    }
+  }
+  
+  onLike(product: any) {
+    product.likes += 1;
+  }
+  onRemove(index: number) {
+    this.filteredProducts.splice(index, 1);
+  }
+  
+  shareOnWhatsApp(link: string) {
+    window.open(`https://wa.me/?text=${link}`, '_blank');
   }
 
-  nextImg(product: Product) {
-    const currentIndex = this.imgIndex[product.name];
-    const nextIndex = (currentIndex + 1) % product.imageUrls.length;
-    this.imgIndex[product.name] = nextIndex;
+  shareOnTelegram(link: string) {
+    window.open(`https://t.me/share/url?url=${link}`, '_blank');
   }
-
-  prevImg(product: Product) {
-    const currentIndex = this.imgIndex[product.name];
-    const prevIndex = (currentIndex - 1 + product.imageUrls.length) % product.imageUrls.length;
-    this.imgIndex[product.name] = prevIndex;
-  }
-
-// to send via w or t 
-shareOnWhatsApp(product: Product) {
-  const url = `https://api.whatsapp.com/send?text=Check out this product:`;
-  window.open(url, '_blank');
-}
-
-shareOnTelegram(product: Product) {
-  const url = `https://t.me/share/url?url=&text=Check out this product`;
-  window.open(url, '_blank');
-}
 }

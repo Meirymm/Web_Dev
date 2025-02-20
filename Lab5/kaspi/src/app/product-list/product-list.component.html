@@ -1,0 +1,11 @@
+<div class="product-list">
+    <app-product-item
+      *ngFor="let product of products, let i = index"
+      [product]="product"
+      (like)="like.emit(product)"
+      (remove)="removeProduct(i)"
+      (shareWhatsApp)="shareWhatsApp.emit(product.link)"
+      (shareTelegram)="shareTelegram.emit(product.link)"
+    ></app-product-item>
+  </div>
+  

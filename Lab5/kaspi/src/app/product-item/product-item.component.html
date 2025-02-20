@@ -1,0 +1,20 @@
+<div class="product-list">
+    <div class="product-card">
+        <div class="image-container">
+        <img [src]="product.image" alt="{{ product.name }}" class="product-image">
+        </div>
+
+        <div class="product-info">
+           <h5 class="product-title">{{ product.name }}</h5>
+           <p class="product-text">{{ product.description }}</p>
+           <p class="product-rating"><strong>Rating:</strong>⭐{{ product.rating }}</p>
+           <p class="product-like"><strong>Likes:</strong>❤️{{ product.likes }}</p>
+  
+        <div class="buttons-container">
+            <button class="btn btn-like"(click)="onLike()"> <i class="fa-solid fa-thumbs-up"></i> Like</button>
+            <button class="btn btn-remove"(click)="removeProduct()"><i class="fa-solid fa-trash"></i> Remove</button>
+            <button class="btn btn-whatsapp" (click)="onShareWhatsApp()"> <i class="fa-brands fa-whatsapp"></i> WhatsApp</button>
+            <button class="btn btn-telegram" (click)="onShareTelegram()"> <i class="fa-brands fa-telegram"></i> Telegram</button>
+        </div>
+    </div>
+</div>

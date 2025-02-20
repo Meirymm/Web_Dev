@@ -1,0 +1,139 @@
+
+/* Карточка товара */
+.product-card {
+    background: white;
+    text-align: left;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 400px; 
+    height: 580px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+/* Контейнер изображения */
+.image-container {
+    width: 100%;
+    height: auto; /* Настроенная высота контейнера */
+    aspect-ratio: 20/24; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Изображение продукта */
+.product-image {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Вписывает изображение внутрь без обрезки */
+    
+}
+
+/* Контейнер информации о продукте */
+.product-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex-grow: 1;
+    width: 100%;
+    padding: 10px;
+}
+
+.product-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 7px;
+}
+
+.product-description {
+    font-size: 14px;
+    color: #666;
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    margin-bottom: 10px;
+}
+
+.product-rating {
+    font-size: 16px;
+    color: #f39c12;
+    margin-bottom: 10px;
+}
+
+
+.button-container {
+    width: 100%;
+    display: flex;
+    margin-top: auto;
+    padding: 10px 0; /* Отступ сверху и снизу */
+}
+
+
+/* Кнопки */
+.btn {
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 120px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    margin: 5px 10px; /* Добавляет отступ по бокам кнопок */
+    
+}
+.btn-like {
+    background-color: #d3256a;
+    color: white;
+}
+
+.btn-like:hover {
+    background-color: #d81389;
+}
+
+.btn-remove {
+    background-color: #cdba4e;
+    color: white;
+}
+
+.btn-remove:hover {
+    background-color: #d1e027;
+}
+
+.btn-whatsapp {
+    background-color: #25D366;
+    color: white;
+}
+
+.btn-whatsapp:hover {
+    background-color: #1da850;
+}
+
+.btn-telegram {
+    background-color: #0088cc;
+    color: white;
+}
+
+.btn-telegram:hover {
+    background-color: #0077b5;
+}
+
+
+
+ 
+  
