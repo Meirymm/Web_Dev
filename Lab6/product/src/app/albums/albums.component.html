@@ -1,0 +1,17 @@
+<div class="albums-container">
+  <h2>Our Albums</h2>
+  <p>Explore our collection of albums!</p>
+  <input [(ngModel)]="newAlbumTitle" placeholder="Название альбома">
+  <button class="add-button" (click)="createAlbum()">Add Album</button>
+
+  <div *ngFor="let album of albums">
+    <div class="albumss">
+      <a [routerLink]="['/albums', album.id]">{{ album.title }}</a>
+      <button class="back-button" (click)="deleteAlbum(album.id)">Delete</button>
+    </div>
+  </div>
+
+  <div class="links-container">
+    <a routerLink="/home">Home</a>
+  </div>
+</div>

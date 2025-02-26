@@ -1,0 +1,9 @@
+<div class="photos-container" *ngIf="(photos | async) as photoList">
+    <button class="back-button" [routerLink]="['/albums', albumId]">
+        Back
+    </button>
+    <div class="photo-item" *ngFor="let photo of photoList">
+        <img class="photo-img" [src]="photo.url" alt="Photo" />
+    </div>
+</div>
+
