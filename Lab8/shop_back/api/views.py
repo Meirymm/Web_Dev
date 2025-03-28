@@ -24,6 +24,19 @@ def category_list(request):
     data = {'categories': list(categories.values())}
     return JsonResponse(data)
 
+def product_list(request):
+    is_active = request.GET.get('is_active')  
+    
+    if is_active is not None:  
+        products = Product.objects.filter(is_active=is_active.lower() == 'true')  
+    else:
+        products = Product.objects.all()  
+
+    data = {'products': list(products.values())}
+    return JsonResponse(data)
+
+
+
 def category_detail(request, id):
     category = get_object_or_404(Category, pk=id)
     data = {'category': {
