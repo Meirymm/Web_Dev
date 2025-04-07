@@ -18,6 +18,9 @@ export class CompanyComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.service.getCompanies().subscribe(companies => this.companies = companies)
+    this.service.getCompanies().subscribe(companies => {
+      console.log("✅ Компании получены:", companies);
+      this.companies = companies;
+    });
   }
 }

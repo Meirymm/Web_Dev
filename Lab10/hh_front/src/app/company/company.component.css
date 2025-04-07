@@ -1,15 +1,42 @@
-h4{
-    margin: 8px 0;
-    color: black;
-    text-decoration: none;
+.company-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
   }
-  a{
+  
+  .company-card {
+    border-radius: 16px;
+    padding: 20px;
+    background: linear-gradient(145deg, #f0f8ff, #e6ecff);
+    box-shadow: 0 8px 20px rgba(0, 0, 50, 0.08);
+    transition: 0.3s ease;
+    border-left: 6px solid #4b74ff;
+  }
+  
+  .company-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 50, 0.15);
+  }
+  
+  .company-card h2 {
+    color: #2d2dd9;
+    margin-bottom: 10px;
+  }
+  
+  .company-card a {
     color: #2d2dd9;
     text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
   }
-  p{
-    margin: 8px 0;
+  
+  .company-card a:hover {
+    text-decoration: underline;
   }
-  li{
-    margin-bottom: 30px;
+  
+  .company-card p {
+    margin: 6px 0;
+    color: #333;
   }
+  

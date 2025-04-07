@@ -1,9 +1,38 @@
-h3{
-    margin: 15px 0;
+.vacancy-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px;
   }
-  h4{
+  
+  .vacancy-card {
+    border-radius: 16px;
+    padding: 20px;
+    background: linear-gradient(135deg, #fff5e6, #ffeedd);
+    box-shadow: 0 6px 18px rgba(255, 170, 0, 0.2);
+    transition: all 0.3s ease;
+    border-left: 6px solid #ffa500;
+  }
+  
+  .vacancy-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 170, 0, 0.3);
+  }
+  
+  .vacancy-card h3 {
+    margin: 0 0 10px;
+    color: #d46a00;
+    font-weight: bold;
+  }
+  
+  .vacancy-card h4 {
+    margin: 0 0 8px;
+    color: #007f00;
+    font-weight: 500;
+  }
+  
+  .vacancy-card p {
     margin: 0;
+    color: #444;
   }
-  p{
-    margin-bottom: 30px;
-  }
+  

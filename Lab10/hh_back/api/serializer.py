@@ -7,6 +7,9 @@ class CompanySerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class VacancySerializer(serializers.ModelSerializer):
+    company = CompanySerializer(read_only=True)  # GET үшін
+    company_id = serializers.IntegerField(write_only=True)  # POST/PUT үшін
+
     class Meta:
         model = Vacancy
-        fields = '__all__'
+        fields = ['id', 'name', 'description', 'salary', 'company', 'company_id']
